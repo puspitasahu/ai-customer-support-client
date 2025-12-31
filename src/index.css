@@ -87,3 +87,14 @@ html,
   border-bottom: 2px solid var(--yellow-color);
   color:var(--yellow-color);
 }
+
+.slider-container{
+  width : 100%;
+  max-width:600px;
+  margin:0 auto
+}
+
+.slider-image{
+  width:100%;
+  height:auto;
+}
