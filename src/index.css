@@ -1,31 +1,31 @@
 *
 {
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 body,
 html,
-#root{
-  height : 100%;
-  margin:0;
-  font-family:'Seoge UI',Tahoma,Geneva,verdana,sans-serif;
+#root
+{
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f7fa;
-  color : #333;
+  color: #333;
+}
+
+
+/* Header */
+.header
+{
+  background: var(--background-color);
+  color: white;
+  padding: 20px 40px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 /* For home , hero, and customer support team */
-
-.hero-title{
-  font-size: 2.8rem;
-  margin-bottom: 18px;
-  font-weight: 700;
-}
-
-.hero-description{
-  font-size: 1.2rem;
-  margin-bottom: 28px;
-}
-
 .hero-section
 {
   display: flex;
@@ -39,20 +39,51 @@ html,
   flex-wrap: wrap;
 }
 
-/* Team Info */
-.team-section{
-  margin: 60px auto 0 auto;
-  max-width:900px;
-  text-align:center
+.hero-title
+{
+  font-size: 2.8rem;
+  margin-bottom: 18px;
+  font-weight: 700;
 }
 
-.start-chat-button{
-  background : var (--yellow-color);
-  color:#2a2a2a;
-  padding : 14px 34px;
-  border-radius : 30px;
-  font-weight : 600;
-  text-decoration : none;
-  box-shadow : 0 2px 8px rgba(0,0,0,0.08);
-  display : inline-block;
+.hero-title span
+{
+  color: var(--yellow-color);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.hero-description
+{
+  font-size: 1.2rem;
+  margin-bottom: 28px;
+}
+
+.start-chat-button
+{
+  background: var(--yellow-color);
+  color: #2a2a2a;
+  padding: 14px 34px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: inline-block;
+}
+
+.nav-list{
+  list-style:none;
+  display:flex;
+  justify-content: space around;
+  margin : 0;
+  padding : 0
+
+}
+
+.nav-item{
+  margin : 0 15px
+}
+
+.nav-item a.active{
+  border-bottom: 2px solid var(--yellow-color);
+  color:var(--yellow-color);
 }
