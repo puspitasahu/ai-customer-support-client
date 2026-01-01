@@ -5,18 +5,20 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 const SupportTeam = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 10000,
-    fade: true,
+    slidesToShow: 3,
+    slideToScroll: 3,
     autoplay: true,
-    autoplayspeed: 3000,
+    autoplaySpeed: 3000,
   };
   return (
-    <section className="team-section mb-5" id="support">
+    // <section className="team-section mb-5" id="support">
+    <section className="team-section mb-5">
       <h2 className="team-title">Meet Our Support Team</h2>
       <Slider {...settings}>
-        {supportTeam.map((member) => {
+        {supportTeam.map((member) => (
           <div key={member.name} className="team-member">
             <img src={member.img} alt={member.name} />
             <div>
@@ -24,8 +26,8 @@ const SupportTeam = () => {
               <br />
               <span className="member-role">{member.role}</span>
             </div>
-          </div>;
-        })}
+          </div>
+        ))}
       </Slider>
     </section>
   );

@@ -14,6 +14,49 @@ html,
   color: #333;
 }
 
+/* Team info */
+.team-section
+{
+  margin: 60px auto 0 auto;
+  max-width: 900px;
+  text-align: center;
+}
+
+.team-title
+{
+  font-size: 2rem;
+  margin-bottom: 36px;
+  color: #2a2a2a;
+}
+
+
+.team-member img
+{
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 18px;
+  border: 3px solid var(--yellow-color);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.member-name
+{
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #2a2a2a;
+}
+
+.member-role
+{
+  font-size: 0.98rem;
+  color: #4f8cff;
+  margin-top: 2px;
+}
+
 
 /* Header */
 .header
@@ -75,7 +118,7 @@ html,
   display:flex;
   justify-content: space around;
   margin : 0;
-  padding : 0
+  padding : 0;
 
 }
 
@@ -97,4 +140,11 @@ html,
 .slider-image{
   width:100%;
   height:auto;
+}
+
+:root
+{
+  --background-color: linear-gradient(120deg, #4f8cff 0%, #6fd6ff 100%);
+  --yellow-color: #ffe156;
+
 }
