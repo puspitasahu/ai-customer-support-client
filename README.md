@@ -17,3 +17,6 @@ If you are developing a production application, we recommend using TypeScript wi
 
 Add Dependency:
 npm i react-slick
+npm install bootstrap
+npm install react-router-dom
+npm install slick-carousel

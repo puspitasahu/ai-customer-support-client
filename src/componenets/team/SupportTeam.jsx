@@ -1,5 +1,8 @@
 import React from "react";
-import { supportTeam } from "./SupportTeam";
+import { supportTeam } from "./SupportTeamConstant";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 const SupportTeam = () => {
   const settings = {
     dots: true,
