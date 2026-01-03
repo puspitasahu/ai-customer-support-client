@@ -28,7 +28,7 @@ const Chat = () => {
 
     //fliter out the messages that are already in local messages
 
-    setMessage((prev) => {
+    setMessages((prev) => {
         const nwmsgs = wsMessages.filter(
             (wsMsg) =>
                 !prev.some(
@@ -50,13 +50,13 @@ const Chat = () => {
         setWaitingForAI(true);
         try{
             const response  =await sendmessage(sessionId.message);
-            setMessage((prev)=>[
+            setMessages((prev)=>[
                 [...prev,{role :"assistant",content : response}]
             ]);
         setWaitingForAI(false);
         }catch(error){
             console.error("Error sendimg message",error);
-            setMessage((prev) =>[
+            setMessages((prev) =>[
                 [...prev,{role :"assistant",content : "Error sending message"}]
             ]);
         setWaitingForAI(false);
