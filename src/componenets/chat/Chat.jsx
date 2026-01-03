@@ -6,7 +6,7 @@ const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
   const [waitingForAI, setWaitingForAI] = useState(false);
-  const messageRef = useRef(null);
+  const messagesEndref = useRef(null);
 
   const { messages: wsMessages } = useStompWebSocket(sessionId);
 
@@ -64,26 +64,49 @@ const Chat = () => {
   };
 
   const handleKeyPress = (e) => {
-    if (e.key == "Enetr" && !e.shiftKey) {
+    if (e.key === "Enetr" && !e.shiftKey) {
       e.preventDeafualt();
       chatAI();
     }
   };
 
+  useEffect(() => {
+    messagesEndref.current?.scrollIntoView({ behaviour: "smooth" });
+  }, [messages, waitingForAI]);
+
+  const lastMsg = messages[messages.length - 1];
+  const showTyping = waitingForAI && lastMsg && lastMsg.role === "user";
+
   return (
-    <div>
-      <h2>Chat</h2>
+    <main className="support-page mt-5">
+      <main className="main-content">
+        <section className="chat-section">
+          <div className="chat-container">
+            <div className="chat-messages">
+              {messages.map((msg, i) => (
+                <div
+                  key={i}
+                  className={`messages ${
+                    messages.role === "user" ? "user" : "assistant"
+                  }`}
+                >
+                  ${msg.content}
+                </div>
+              ))}
 
-      <input
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        placeholder="Type message..."
-      />
+              {showTyping && (
+                <div className="ai-typing-indicator">
+                  <strong> Customer Support : </strong>
+                  <em>is typing ...</em>
+                </div>
+              )}
 
-      <button onClick={chatAi}>Send</button>
-
-      {waitingForAI && <p>AI is typing...</p>}
-    </div>
+              <div ref={messagesEndref}></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </main>
   );
 };
 
