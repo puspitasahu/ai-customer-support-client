@@ -38,7 +38,7 @@ const Chat = () => {
     });
   }, [wsMessages]);
 
-  const chatAi = async () => {
+  const chatAI = async () => {
     if (!message.trim()) return;
 
     setMessages((prev) => [...prev, { role: "user", content: message }]);
@@ -48,6 +48,11 @@ const Chat = () => {
 
     try {
       // backend / websocket will respond
+      const response = await sendMessage(sessionId.message);
+      setMessage((prev) => [
+        [...prev, { role: "assistant", content: response }],
+      ]);
+      setWaitingForAI(false);
     } catch (error) {
       console.error("Error sending message", error);
       setMessages((prev) => [
@@ -55,6 +60,13 @@ const Chat = () => {
         { role: "assistant", content: "Error sending message" },
       ]);
       setWaitingForAI(false);
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key == "Enetr" && !e.shiftKey) {
+      e.preventDeafualt();
+      chatAI();
     }
   };
 
